@@ -1,0 +1,28 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8180/realms/nttdataproject
+          jwk-set-uri: http://localhost:8180/realms/nttdataproject/protocol/openid-connect/certs
+
+jwt:
+  auth:
+    converter:
+      resource-id: admin-client-api-rest
+      principle-attribute: preferred_username
+
+logging:
+  level:
+    org:
+      keycloak: DEBUG
+
+oauth2:
+  server:
+    url: http://localhost:8180
+  token:
+    endpoint: /realms/nttdataproject/protocol/openid-connect/token
+  client:
+    id: admin-cli
+    secret: 3DumYZzv0Q2azTDCgObQY1D3dHQRe69F
+    grant_type: password
